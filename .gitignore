@@ -5,3 +5,5 @@ __pycache__/
 *.png
 .DS_Store
 .env
+.ipynb_checkpoints/
+catboost_info/

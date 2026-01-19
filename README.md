@@ -1,7 +1,10 @@
 Project Title-Used Car Price Prediction (USA)
 
 A machine learning web application that predicts the price of used cars in the USA based on features like manufacturing year, mileage, city, state, company (make), and model.  
-The app uses Random Forest Regression, along with Target Encoding and Frequency Encoding for categorical feature handling.
+I downloaded the dataset from kaggle.
+Link- https://www.kaggle.com/datasets/harikrishnareddyb/used-car-price-predictions
+
+Uses CatBoost Regression for training the model and i don't use any encoder to encode the categorical features ,CatBoost regressor itself encodes it .
 
 Features
 
@@ -14,21 +17,19 @@ Features
 
 How it works:
 
+After the converting the csv dataset into dataframe, cleaned the dataset.
 Dataset split into `X` (features) and `y` (Price)
-Categorical columns encoded using:
-   - Target Encoding: `Make`, `Model`, `State`
-   - Frequency Encoding: `City`
-Company → Models mapping stored using:
-company_models_map = train_df.groupby("Company")["Model"].unique().apply(list).to_dict()
-Used RandomForestRegressor algorithm to train the model
+Again x and y is splitted for training and testing .
+Used CatBoostRegressor algorithm to train the model and the algorithm itself encode the categorical features.
 
-Tech Stack
+Tech Stack:
 
 Python
-scikit-learn (Random Forest Regressor)
+scikit-learn
 Pandas, NumPy
+Matplotlib
 Streamlit
-Pickle (Model & encoders storage)
+Pickle (contains model ,columns list, dataframe ,etc..)
 USA Used Cars Dataset (852,092 rows)
 
 To run this in streamlit and enter this in terminal:
